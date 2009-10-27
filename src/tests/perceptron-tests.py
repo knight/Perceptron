@@ -64,10 +64,7 @@ class NeuronTests(unittest.TestCase):
           ((-1,1),-1),                 
           ((1,1), 1),
           ((-1,-1),1),
-          #((-100,-899),1),
-          ((1,-1),-1)
-          #((1,10),1),
-          #((100,1),1)      
+          ((1,-1),-1)     
         )
         self.assertEqual(100, sut.train(epoch), "There's no way a single neuron will learn this problem")
     def test_neuron_trainng_should_stop_if_training_set_is_learnt(self):
