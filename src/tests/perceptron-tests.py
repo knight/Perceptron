@@ -1,4 +1,6 @@
-
+import sys
+import os
+sys.path[0]='..' + os.sep
 import unittest
 import perceptron
 
