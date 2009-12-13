@@ -80,9 +80,26 @@ class NeuronTests(unittest.TestCase):
     def test_neuron_should_correct_weight_if_delta_is_not_zero(self):
         sut = self.sut
         self.assertNotEqual(1, sut.correct_weight(1, 2, 1))
-        
+
+class AdaptingNeuronTests(unittest.TestCase):
+    def setUp(self):
+        self.sut = perceptron.Neuron([0,1,1])
+    def tearDown(self):
+        pass
+    def test_there_should_be_no_difference_if_vector_is_equal_with_weights(self):
+        sut = self.sut
+        self.assertEquals(0,sut.difference((1,1)))
+    def test_neuron_should_adapt_its_weights_if_there_is_difference(self):
+        sut = self.sut
+        sut.adapt((2,2))
+        self.assertNotEqual([0,1,1], sut.weights)
+
 def suite():
-    return unittest.TestLoader().loadTestsFromTestCase(NeuronTests)
+    suite = unittest.TestSuite()
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(NeuronTests))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(AdaptingNeuronTests))
+    
+    return suite
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
