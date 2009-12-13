@@ -1,8 +1,5 @@
-import sys
-import os
-sys.path[0]='..' + os.sep
 import unittest
-import perceptron
+from NeuralNetworks import perceptron
 
 
 class NeuronTests(unittest.TestCase):
@@ -82,7 +79,8 @@ class NeuronTests(unittest.TestCase):
         sut = self.sut
         self.assertNotEqual(1, sut.correct_weight(1, 2, 1))
         
-
+def suite():
+    return unittest.TestLoader().loadTestsFromTestCase(NeuronTests)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

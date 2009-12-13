@@ -1,14 +1,11 @@
-from perceptron import Neuron
-
-
 if __name__ == '__main__':
-    import perceptron
+    import NeuralNetworks.perceptron
     import random
     import sys
     w0 = random.uniform(-1, 1)
     w1 = random.uniform(-1, 1)
     w2 = random.uniform(-1, 1)
-    neuron = perceptron.Neuron([w0,w1,w2])
+    neuron = NeuralNetworks.perceptron.Neuron([w0,w1,w2])
     neuron.learn_factor = 0.45
     epoch = (
         ((0,0),     1),
