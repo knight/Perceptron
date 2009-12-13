@@ -1,6 +1,8 @@
 import unittest
+if __name__:
+    import sys
+    sys.path.append('..')
 from NeuralNetworks import perceptron
-
 
 class NeuronTests(unittest.TestCase):
 
